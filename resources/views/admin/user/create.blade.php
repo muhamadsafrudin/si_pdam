@@ -26,6 +26,7 @@
                           <option value="">-pilih-</option>
                           <option value="1"<?=old('role')  == 1 ? 'selected' : '' ?>>Administrator</option>
                           <option value="2" <?=old('role')  == 2 ? 'selected' : '' ?>>Petugas</option>
+                          <option value="3" <?=old('role')  == 3 ? 'selected' : '' ?>>Ketua Bagian</option>
                         </select>
                         <small class="text-danger">@error('role') {{ $message }}  @enderror</small>
                       </div>

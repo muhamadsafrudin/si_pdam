@@ -63,8 +63,11 @@
                                 <i class="fa fa-plus"></i>  Insert Data
                             </button>
                             @endif
+                            @if (auth()->user()->role < 3)
                             <a class="btn btn-sm btn-warning" href="{{ url('admin/penagihan/printlist/').'?bulan='.$bulan.'&tahun='.$tahun }}"><i class="fa fa-print"> Cetak</i></a>
-                            <button type="submit" class="btn btn-sm btn-primary float-right"><i class="fa fa-search"></i> Cari</button>
+                             
+                            @endif
+                          <button type="submit" class="btn btn-sm btn-primary float-right"><i class="fa fa-search"></i> Cari</button>
                         </div>
                     </form>
                 </div>
@@ -82,7 +85,10 @@
                   <th>Tanggal</th>
                   <th>Jumlah Tunggakan</th>
                   <th>Ket</th>
+                  @if (Auth()->user()->role < 3 )
                   <th>Aksi</th>
+                  @endif
+                 
                 </tr>
                 </thead>
                 <tbody>
@@ -96,12 +102,14 @@
                         <td>{{ $penagihan->tanggal_awal."/".$penagihan->tanggal_akhir }}</td>
                         <td>Rp. {{ number_format($penagihan->jumlah_tunggakan ,0,',','.') }}</td>
                         <td>{{ $penagihan->keterangan }}</td>
+                        @if (Auth()->user()->role < 3 )
                         <td align="center">
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg-{{ $penagihan->id_pelanggan }}">
                                 <i class="fa fa-edit"></i>  Edit
                             </button>
                             <a class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin')" href="{{ url('admin/penagihan/delete').'/'.$penagihan->id_pelanggan }}"><i class="fa fa-trash"></i> Hapus</a>
                         </td>
+                        @endif
                       </tr>    
 
 

@@ -25,6 +25,7 @@
                         <select name="role" class="form-control @error('role') is-invalid  @enderror">
                           <option value="1"<?=$user->role  == 1 ? 'selected' : '' ?>>Administrator</option>
                           <option value="2" <?=$user->role  == 2 ? 'selected' : '' ?>>Petugas</option>
+                          <option value="3" <?=$user->role  == 3 ? 'selected' : '' ?>>Ketua Bagian</option>
                         </select>
                         <small class="text-danger">@error('role') {{ $message }}  @enderror</small>
                       </div>

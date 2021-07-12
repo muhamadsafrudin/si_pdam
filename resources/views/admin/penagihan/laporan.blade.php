@@ -57,8 +57,11 @@
                                 </select>
                             </div> 
                             <div class="form-group">
-                                @if ($bulan || $tahun)
-                                    <a class="btn btn-sm btn-warning" href="{{ url('admin/penagihan/print/').'?bulan='.$bulan.'&tahun='.$tahun }}"><i class="fa fa-print"> Cetak</i></a>
+                                @if ($bulan || $tahun )
+                                @if (auth()->user()->role < 3)
+                                <a class="btn btn-sm btn-warning" href="{{ url('admin/penagihan/print/').'?bulan='.$bulan.'&tahun='.$tahun }}"><i class="fa fa-print"> Cetak</i></a>
+                                  
+                                @endif
                                 @endif
                                 <button type="submit" class="btn btn-sm btn-primary float-right"><i class="fa fa-search"></i> Cari</button>
                             </div>

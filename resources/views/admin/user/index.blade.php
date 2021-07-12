@@ -30,9 +30,11 @@
                     @php
                     if($user->role == 1){
                         $role = "Admin";
-                    }else{
+                    }else if($user->role == 2){
                         $role = "Petugas";
-                    }   
+                    }else if($user->role == 3){
+                        $role = "Ketua Bagian";
+                    } 
                     @endphp
              
                     <tr>
