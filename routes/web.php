@@ -34,14 +34,14 @@ Route::middleware(['auth'])->group(function () {
 
     //crud penagihan
     route::get('admin/penagihan/', [penagihancontroller::class, 'index']);
-    route::post('admin/penagihan/store', [penagihancontroller::class, 'store']);
-    route::post('admin/penagihan/update', [penagihancontroller::class, 'update']);
-    route::get('admin/penagihan/delete/{id}', [penagihancontroller::class, 'destroy']);
-    route::get('admin/penagihan/printlist', [penagihancontroller::class, 'printlist']);
+    route::post('admin/penagihan/store', [penagihancontroller::class, 'store'])->middleware('ketuabagian');
+    route::post('admin/penagihan/update', [penagihancontroller::class, 'update'])->middleware('ketuabagian');
+    route::get('admin/penagihan/delete/{id}', [penagihancontroller::class, 'destroy'])->middleware('ketuabagian');
+    route::get('admin/penagihan/printlist', [penagihancontroller::class, 'printlist'])->middleware('ketuabagian');
 
     //laporan
     route::get('admin/penagihan/laporan', [penagihancontroller::class, 'laporan']);
-    route::get('admin/penagihan/print', [penagihancontroller::class, 'print']);
+    route::get('admin/penagihan/print', [penagihancontroller::class, 'print'])->middleware('ketuabagian');
 
     //ganti user   
     route::get('admin/user/profile/{id}', [usercontroller::class, 'profile']);
