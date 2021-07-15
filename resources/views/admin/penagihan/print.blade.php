@@ -47,6 +47,9 @@
               <h3 class="">{{ $judul }}</h3>
               <h6>Bulan : {{ $bulan }} </h6>
               <h6>Tahun : {{ $tahun }}</h6>
+              <div style="width: 350px;margin-top:-120px;margin-right:-100px" class="float-right">
+                <img src="{{ asset('/login/images/pdam.png') }}" style="width:70%">
+              </div>
             </div>
             <div class="card-body">
               <table class="table table-bordered table-hover">
