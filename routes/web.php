@@ -5,6 +5,7 @@ use App\Http\Controllers\penagihancontroller;
 use Illuminate\Routing\RouteGroup;
 use App\Http\controllers\authcontroller;
 use App\Http\controllers\usercontroller;
+use App\Http\controllers\pesancontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,12 @@ Route::middleware(['auth'])->group(function () {
     //ganti user   
     route::get('admin/user/profile/{id}', [usercontroller::class, 'profile']);
     route::post('admin/user/profile/{id}', [usercontroller::class, 'profileupdate']);
+
+    // pesan
+    route::get('pesan', [pesancontroller::class, 'index']);
+    route::get('pesan/{id}', [pesancontroller::class, 'pesan']);
+    route::post('pesan/{id}', [pesancontroller::class, 'pesan_aksi']);
+    route::get('pesan-hapus/{id}', [pesancontroller::class, 'pesan_hapus']);
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
