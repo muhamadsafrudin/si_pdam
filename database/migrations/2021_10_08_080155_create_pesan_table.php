@@ -19,6 +19,7 @@ class CreatePesanTable extends Migration
             $table->integer('to')->nullable();
             $table->text('pesan');
             $table->dateTime('waktu');
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }
